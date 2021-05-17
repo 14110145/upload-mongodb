@@ -12,6 +12,7 @@ exports.uploadCtr = (req, res, next) => {
 
   let imgArray = files.map((file) => {
     let img = fs.readFileSync(file.path);
+    fs.unlinkSync(file.path);
     return (endcode_image = img.toString("base64"));
   });
 
@@ -39,7 +40,7 @@ exports.uploadCtr = (req, res, next) => {
 
   Promise.all(result)
     .then((msg) => {
-      return res.status(200).json({ msg });
+      return res.status(301).redirect("/");
     })
     .catch((error) => {
       return res.status(400).json(error);

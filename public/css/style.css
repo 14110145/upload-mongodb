@@ -14,3 +14,12 @@ input:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
+.card {
+  margin: 10px;
+}
+
+.card img {
+  height: 300px !important;
+  height: 100%;
+}

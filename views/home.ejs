@@ -26,23 +26,22 @@
         </div>
       </div>
       <!-- Display images -->
-      <div class="row">
-        <div class="col-3">
-          <% allImages.map(image=> { %>
+      <div class="row justify-content-around align-items-center">
+        <% allImages.map(image=> { %>
+          <div class="col-3">
             <div class="card" style="width: 18rem;">
-              <img src=<%=data:image.contentType;base64,%>
-              <%= image.imagesBase64 %> class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title font-poppins">UI/UX Design</h5>
-                  <p class="text-secondary font-size-09">Some quick example text to build on the card title and make up
-                    the
-                    bulk of the card's
-                    content.</p>
-                  <a href="#" class="btn btn-info font-size-09 text-light">Read More</a>
-                </div>
-                <%})%>
+              <img src="data:<%=image.contentType %>;base64, <%=image.imagesBase64 %>" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title font-poppins">UI/UX Design</h5>
+                <p class="text-secondary font-size-09">Some quick example text to build on the card title and make up
+                  the
+                  bulk of the card's
+                  content.</p>
+                <a href="#" class="btn btn-info font-size-09 text-light">Read More</a>
+              </div>
             </div>
-        </div>
+          </div>
+          <%})%>
       </div>
     </div>
 
