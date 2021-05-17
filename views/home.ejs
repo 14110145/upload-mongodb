@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs') -%>
+
+  <body>
+    <div class="container text-center">
+      <div class="title py-5">
+        <h1>NodeJS Upload File</h1>
+        <p class="subtitle">Upload Images to the <Strong>Server</Strong></p>
+      </div>
+      <!-- Upload form -->
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <form action="/upload/uploadmultiple" enctype="multipart/form-data" method="POST">
+            <div class="row">
+              <div class="col-8">
+                <input type="file" class="form-control" name="images" id="formFile" multiple>
+              </div>
+              <div class="col-2">
+                <input type="submit" class="btn btn-warning" value="Upload">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Display images -->
+      <div class="row">
+        <div class="col-3">
+          <% allImages.map(image=> { %>
+            <div class="card" style="width: 18rem;">
+              <img src=<%=data:image.contentType;base64,%>
+              <%= image.imagesBase64 %> class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title font-poppins">UI/UX Design</h5>
+                  <p class="text-secondary font-size-09">Some quick example text to build on the card title and make up
+                    the
+                    bulk of the card's
+                    content.</p>
+                  <a href="#" class="btn btn-info font-size-09 text-light">Read More</a>
+                </div>
+                <%})%>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+
+</html>
